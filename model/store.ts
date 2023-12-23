@@ -1,20 +1,18 @@
+import { themeColorList } from '@/theme/color';
 import { createContext, useContext } from 'react';
 import { createStore, useStore as useZustandStore } from 'zustand';
 
 interface StoreInterface {
-  lastUpdate: number;
-  light: boolean;
-  count: number;
-  tick: (lastUpdate: number, light: boolean) => void;
-  increment: () => void;
-  decrement: () => void;
+  themeColorList: string[];
+  themeColor: string;
+  randomThemeColorIndex: number;
   reset: () => void;
 }
 
 const getDefaultInitialState = () => ({
-  lastUpdate: Date.now(),
-  light: false,
-  count: 0,
+  themeColorList: themeColorList,
+  themeColor: themeColorList[0],
+  randomThemeColorIndex: 0,
 });
 
 export type StoreType = ReturnType<typeof initializeStore>;
@@ -37,25 +35,12 @@ export const initializeStore = (
   return createStore<StoreInterface>((set, get) => ({
     ...getDefaultInitialState(),
     ...preloadedState,
-    tick: (lastUpdate, light) => {
-      set({
-        lastUpdate,
-        light: !!light,
-      });
-    },
-    increment: () => {
-      set({
-        count: get().count + 1,
-      });
-    },
-    decrement: () => {
-      set({
-        count: get().count - 1,
-      });
-    },
     reset: () => {
+      const index = Math.floor(Math.random() * themeColorList.length);
+      document.body.classList.add('theme-' + (index + 1));
       set({
-        count: getDefaultInitialState().count,
+        themeColor: themeColorList[index],
+        randomThemeColorIndex: index,
       });
     },
   }));

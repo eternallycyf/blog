@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import StyledComponentsRegistry from '@/lib/AntdRegistry';
 import '@/styles/globals.css';
+import '@/public/scss/global.scss';
 import { i18n } from '@/i18n-config';
 import StoreProvider from '@/model/StoreProvider';
 

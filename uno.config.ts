@@ -11,6 +11,10 @@ import {
 import type { Theme } from 'unocss/preset-mini';
 import { presetShadcn } from './preset.shadcn';
 
+function withOpacityValue(variable: string) {
+  return `rgba(var(${variable}), %alpha)`;
+}
+
 export default defineConfig({
   shortcuts: [
     {
@@ -19,7 +23,17 @@ export default defineConfig({
     },
   ],
   theme: {
-    colors: {},
+    colors: {
+      primary: {
+        extralight: withOpacityValue('--color-primary-extralight'),
+        light: withOpacityValue('--color-primary-light'),
+        medium: withOpacityValue('--color-primary-medium'),
+        DEFAULT: withOpacityValue('--color-primary'),
+        dark: withOpacityValue('--color-primary-dark'),
+      },
+      black: withOpacityValue('--color-black'),
+      white: withOpacityValue('--color-white'),
+    },
     fontFamily: {
       code: 'FiraCode',
       mone: 'OperatorMono',
@@ -28,7 +42,7 @@ export default defineConfig({
   },
   presets: [
     presetUno({
-      dark: 'media',
+      dark: 'class',
     }),
     presetAttributify(),
     presetIcons({
