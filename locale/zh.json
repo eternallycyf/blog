@@ -1,0 +1,9 @@
+{
+  "server-component": {
+    "welcome": "欢迎"
+  },
+  "counter": {
+    "increment": "减少",
+    "decrement": "增加"
+  }
+}
