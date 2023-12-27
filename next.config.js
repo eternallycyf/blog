@@ -5,7 +5,6 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   experimental: {
     mdxRs: true,
-    typedRoutes: true,
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
