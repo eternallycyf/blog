@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "APP_ENV=development next dev",
+    "dev:prod": "APP_ENV=production next dev",
+    "build": "APP_ENV=production next build",
+    "build:text": "APP_ENV=test next build",
+    "build:dev": "APP_ENV=development next build",
+    "build:prod": "APP_ENV=production next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -32,7 +36,7 @@
     "server-only": "^0.0.1",
     "tailwind-merge": "^2.1.0",
     "zustand": "^4.4.7",
-    "swr": "^2.2.4",
+    "swr": "^2.2.4"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.158",

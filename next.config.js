@@ -2,6 +2,9 @@ const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  env: {
+    APP_ENV: process.env.APP_ENV,
+  },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   experimental: {
     mdxRs: true,
