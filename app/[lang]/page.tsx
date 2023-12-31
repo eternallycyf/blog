@@ -1,34 +1,24 @@
-import { Alert, Button, ConfigProvider, Typography, Input } from 'antd';
-import ThemeConfig from '@/theme/themeConfig';
-import locale from 'antd/locale/zh_CN';
-import Link from 'next/link';
-import HelloWorld from './hello-world/page.mdx';
-import { getLocale } from '@/locale/utils';
+'use client';
 import { Locale } from '@/i18n-config';
-import LocaleSwitcher from './_components/locale-switcher';
+import { useStore } from '@/model/store';
+import ThemeConfig from '@/theme/themeConfig';
+import { ConfigProvider } from 'antd';
+import locale from 'antd/locale/zh_CN';
+import { useLayoutEffect } from 'react';
 
-import type { Route } from 'next';
-
-export default async function Home({
+export default function Home({
   params: { lang },
 }: {
   params: { lang: Locale };
 }) {
-  const localLocale = await getLocale(lang);
-
   return (
     <section>
-      <div id="root">
+      <div id="root" w="100%" h="100%">
         <ConfigProvider
           locale={locale}
           componentSize="small"
           theme={ThemeConfig}
-        >
-          <HelloWorld />
-          <Link href={'/proxy' as Route}>proxy</Link>
-          <LocaleSwitcher />
-          {localLocale['server-component'].welcome}
-        </ConfigProvider>
+        ></ConfigProvider>
       </div>
     </section>
   );

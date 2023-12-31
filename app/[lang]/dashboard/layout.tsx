@@ -1,19 +1,10 @@
-const Layout = ({
-  children,
-  header,
-  footer,
-}: {
-  children: React.ReactNode;
-  header: React.ReactNode;
-  footer: React.ReactNode;
-}) => {
-  return (
-    <>
-      <header>{header}</header>
-      <main>{children}</main>
-      <footer>{footer}</footer>
-    </>
-  );
+export const metadata = {
+  title: 'dashboard',
+  description: 'blog dashboard',
+};
+
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  return <>children</>;
 };
 
 export default Layout;

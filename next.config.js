@@ -19,6 +19,7 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  reactStrictMode: false,
 };
 
 const withMDX = require('@next/mdx')();
